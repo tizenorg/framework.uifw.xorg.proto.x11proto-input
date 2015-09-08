@@ -199,7 +199,8 @@
 #define XI_RawTouchBegin                 22
 #define XI_RawTouchUpdate                23
 #define XI_RawTouchEnd                   24
-#define XI_LASTEVENT                     XI_RawTouchEnd
+#define XI_TouchCancel                   27 /* 25 ~ 26 is for XI2.3 */
+#define XI_LASTEVENT                     XI_TouchCancel
 /* NOTE: XI2LASTEVENT in xserver/include/inputstr.h must be the same value
  * as XI_LASTEVENT if the server is supposed to handle masks etc. for this
  * type of event. */
@@ -232,5 +233,6 @@
 #define XI_RawTouchBeginMask             (1 << XI_RawTouchBegin)
 #define XI_RawTouchEndMask               (1 << XI_RawTouchEnd)
 #define XI_RawTouchUpdateMask            (1 << XI_RawTouchUpdate)
+#define XI_TouchCancelMask               (1 << XI_TouchCancel)
 
 #endif /* _XI2_H_ */

@@ -924,6 +924,31 @@ typedef struct
 } xXITouchOwnershipEvent;
 
 /**
+ * The cancel of a touch stream has passed to client.
+ */
+typedef struct
+{
+    uint8_t     type;               /**< Always GenericEvent */
+    uint8_t     extension;          /**< XI extension offset */
+    uint16_t    sequenceNumber;
+    uint32_t    length;             /**< Length in 4 byte units */
+    uint16_t    evtype;             /**< XI_TouchCancel */
+    uint16_t    deviceid;           /**< Device that has changed */
+    Time        time;
+    uint32_t    pad0;
+    Window      root;
+    Window      event;
+    Window      child;
+/* └──────── 32 byte boundary ────────┘ */
+    uint16_t    sourceid;
+    uint16_t    pad1;
+    uint32_t    flags;
+    uint32_t    pad3;
+    uint32_t    pad4;
+} xXITouchCancelEvent;
+
+
+/**
  * Default input event for pointer, keyboard or touch input.
  */
 typedef struct
